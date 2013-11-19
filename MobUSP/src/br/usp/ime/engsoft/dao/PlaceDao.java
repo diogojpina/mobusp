@@ -18,11 +18,15 @@ import br.usp.ime.engsoft.entidade.Station;
 
 @Component
 public class PlaceDao {
-	private final Session session;
+	private Session session;
 	
 	public PlaceDao() {
 		this.session = CriadorDeSession.getSession();
-	}	
+	}
+	
+	public void setSession(Session session) {
+		this.session = session;
+	}
 	
 	public List<Place> listaTudo() {
 		return this.session.createCriteria(Place.class).list();

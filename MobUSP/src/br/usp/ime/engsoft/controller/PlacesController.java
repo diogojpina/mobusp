@@ -6,6 +6,7 @@ import java.util.List;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.view.Results;
 import br.usp.ime.engsoft.dao.PlaceDao;
 import br.usp.ime.engsoft.entidade.Place;
 
@@ -29,12 +30,19 @@ public class PlacesController {
 		return places;
 	}
 	
+
+	
 	public void ver(Long id) {
 		this.result.include("place", this.dao.carrega(id));
 	}
 	
 	public List<Place> lista() {
 		return dao.listaTudo();		
+	}
+	
+	public void listaJson() {
+		List<Place> places = dao.listaTudo();	
+		this.result.use(Results.json()).from(places).serialize();		
 	}
 	
 	public Place formulario(Long id) {

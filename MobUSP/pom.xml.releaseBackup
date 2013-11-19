@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>br.com.caelum</groupId>
-	<artifactId>vraptor-blank-project</artifactId>
+	<artifactId>mobusp</artifactId>
 	<packaging>pom</packaging>
 	
 	<parent>

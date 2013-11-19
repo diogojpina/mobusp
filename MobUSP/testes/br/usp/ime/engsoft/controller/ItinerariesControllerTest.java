@@ -17,7 +17,7 @@ public class ItinerariesControllerTest {
 
 	private ItinerariesController itiC;
 	private ItinerarioDao itiDao;
-	private List<ItinerariesController> itis;
+	private List<Itinerarie> itis;
 	private MockResult result;	
 	
 	@Before
@@ -26,7 +26,7 @@ public class ItinerariesControllerTest {
 		itiDao = mock(ItinerarioDao.class);
 		itiC = new ItinerariesController(itiDao, result);
 		
-		List<Itinerarie> itis = new ArrayList<Itinerarie>();
+		itis = new ArrayList<Itinerarie>();
 		
 		Itinerarie iti = new Itinerarie();
 		iti.setId((long) 0);
@@ -44,6 +44,19 @@ public class ItinerariesControllerTest {
 		List<Itinerarie> itis = this.itiC.index("USP");
 		verify(itiDao).buscaItinerarie("USP");
 		assertTrue(itis.size() > 0);
+	}
+	
+	@Test
+	public void buscaVazia() {
+		List<Itinerarie> itis = this.itiC.index(null);
+		assertTrue(itis.size() == 0);
+	}
+	
+	@Test
+	public void ver() {
+		Long id = (long) 1;
+		this.itiC.ver(id);
+		verify(itiDao).carrega(id);
 	}
 }
 
