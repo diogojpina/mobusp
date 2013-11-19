@@ -6,7 +6,6 @@ import java.util.List;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.usp.ime.engsoft.Produto;
 import br.usp.ime.engsoft.dao.PlaceDao;
 import br.usp.ime.engsoft.entidade.Place;
 

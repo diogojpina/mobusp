@@ -37,7 +37,7 @@ public class IndexController {
 
 	@Path("/")
 	public void index() {
-		result.include("variable", "VRaptor!");
+		result.include("titulo", "MobUSP");
 	}
 	
 }
