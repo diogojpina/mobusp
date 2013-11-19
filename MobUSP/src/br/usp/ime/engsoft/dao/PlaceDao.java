@@ -54,7 +54,6 @@ public class PlaceDao {
 	public List<Place> buscaPlace(String busca) {
 		List<Place> places = session.createCriteria(Place.class)
 				.add(Restrictions.or(Restrictions.like("name", busca, MatchMode.ANYWHERE), Restrictions.like("description", busca, MatchMode.ANYWHERE)))
-				//.add(Restrictions.like("name", busca))				
 				.list();
 		return places;		
 	}

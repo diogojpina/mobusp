@@ -22,12 +22,27 @@
 
 <br /><br />
 
-<c:if test="${itinerario != null}">
-Pegue o seguinte Ônibus:
-<br />
-${itinerario.name }
-<br />
-${itinerario.code }
-<br />
-${itinerario.description }
-</c:if>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Codigo</th>
+      <th>Descrição</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>  
+<c:forEach items="${itineraries}" var="itinerarie">
+      <tr>
+        <td>${itinerarie.name}</td>
+        <td>${itinerarie.code}</td>
+        <td>${itinerarie.description}</td>
+        <td>
+        	<a href="itineraries/ver?id=${itinerarie.id}">Detalhes</a>       
+        </td>
+      </tr>      
+</c:forEach>
+</tbody>
+</table>
+

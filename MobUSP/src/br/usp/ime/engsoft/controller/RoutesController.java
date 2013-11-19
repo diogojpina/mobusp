@@ -28,13 +28,13 @@ public class RoutesController {
 	public void index(Long id1, Long id2) {
 		Place place1;
 		Place place2;
+		List<Itinerarie> itis = new ArrayList<Itinerarie>();
 		
 		this.result.include("places", this.dao.listaTudo());
 		this.result.include("id1", id1);
 		this.result.include("id2", id2);
 		
-		if (id1 != null && id2 != null) {
-			Itinerarie iti = null;
+		if (id1 != null && id2 != null) {			
 			Itinerarie iti1;
 			Itinerarie iti2;
 			List<Itinerarie> itis1;
@@ -47,35 +47,28 @@ public class RoutesController {
 			itis2 = this.dao.listItinerates(place2);
 			
 			Iterator<Itinerarie> i = itis1.iterator();
-			Iterator<Itinerarie> j = itis2.iterator();
+			Iterator<Itinerarie> j;
+			
 			
 			while (i.hasNext()) {
 				iti1 = i.next();
+				
+				j = itis2.iterator();
 				while (j.hasNext()) {
 					iti2 = j.next();
 					if (iti1.getId() == iti2.getId())
-						iti = iti1;
+						itis.add(iti1);
 				}
-				if (iti != null)
-					break;
 			}
-			
-			if (iti == null) {
-				System.out.println("Não foi possível encontrar rota.");
-			}
-			else {
-				System.out.println(iti.getName());
-			}
-			
-			this.result.include("itinerario", iti);	
-
-			
 		}
 		else {
 			place1 = new Place();
-			place2 = new Place();			
+			place2 = new Place();	
 		}
-			
+		
+		
+		System.out.println(itis.size());
+		this.result.include("itineraries", itis);				
 		 
 
 	}	

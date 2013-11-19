@@ -18,14 +18,19 @@ import static org.mockito.Mockito.*;
 
 import org.mockito.MockitoAnnotations;
 
+import br.usp.ime.engsoft.entidade.Itinerarie;
 import br.usp.ime.engsoft.entidade.Place;
+import br.usp.ime.engsoft.entidade.Station;
 
 public class PlaceDaoTest {
 	
 	private PlaceDao placeDao;
 	private List<Place> places;	
+	private Place place;
 	
 	private @Mock Session session;
+	private @Mock Transaction tx;
+	private @Mock Criteria criteria;
 	
 	
 	
@@ -37,30 +42,92 @@ public class PlaceDaoTest {
 		placeDao = new PlaceDao();
 		placeDao.setSession(session);
 		
+		List<Itinerarie> itis = new ArrayList<Itinerarie>();
+		Itinerarie iti = new Itinerarie();
+		iti.setId((long) 1);
+		iti.setName("Butantã USP");
+		iti.setCode("ABC");
+		itis.add(iti);
+		
+		List<Station> stations = new ArrayList<Station>();
+		Station station = new Station();
+		station.setId((long) 1);
+		station.setName("Ponto do IME");		
+		station.setItineraries(itis);
+		stations.add(station);	
+		
+		
+		
 		places = new ArrayList<Place>();
 		
-		Place place = new Place();
+		place = new Place();
 		place.setId((long) 1);
 		place.setName("IME");
-		place.setAddress("Rua do Matão");		
+		place.setAddress("Rua do Matão");	
+		place.setStations(stations);
 		places.add(place);
 		
-		when(session.get(Place.class, (long) 1)).thenReturn(place);
-		when(session.createCriteria(Place.class).list()).thenReturn(places);
+		when(session.beginTransaction()).thenReturn(tx);
+		when(session.createCriteria(Place.class)).thenReturn(criteria);
+		when(criteria.list()).thenReturn(places);	
+		
+
 	}
 	
 	
+	@Test
 	public void listaTudo() {
-		List<Place> places = placeDao.listaTudo();		
+		List<Place> places = placeDao.listaTudo();
+		assertTrue(places.size() > 0);
 	}	
 	
 	@Test
 	public void carrega() {
 		Long id = (long) 1;		
+		
+		when(session.get(Place.class, id)).thenReturn(place);
 		Place place = placeDao.carrega(id);
 		assertEquals(place.getName(), "IME");
 	}
 	
-
+	@Test
+	public void salva() {	
+		Place place = new Place();
+		place.setId((long) 0);
+		place.setName("IME");
+		place.setAddress("Rua do Matão");		
+		
+		placeDao.salva(place);
+		
+		verify(session).save(place);
+		verify(tx).commit();
+	}
+	
+	@Test
+	public void atualiza() {	
+		placeDao.salva(place);
+		verify(session).update(place);
+		verify(tx).commit();
+	}	
+	
+	@Test
+	public void remove() {
+		placeDao.remove(place);
+		
+		verify(session).delete(place);
+		verify(tx).commit();
+	}
+	
+	@Test
+	public void busca() {
+		placeDao.buscaPlace("IME");
+		assertTrue(places.size() > 0);
+	}
+	
+	@Test
+	public void listItineraries() {
+		List<Itinerarie> itis = placeDao.listItinerates(place);
+		assertTrue(itis.size() > 0);		
+	}
 
 }
