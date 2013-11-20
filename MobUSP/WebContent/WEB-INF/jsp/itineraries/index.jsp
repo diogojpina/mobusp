@@ -41,18 +41,18 @@ Procurar Itinerário:
 
 <script type="text/javascript">
 	var initialData = [
-		{ name: "Well-Travelled Kitten", sales: 352, price: 75.95 },
-		{ name: "Speedy Coyote", sales: 89, price: 190.00 },
-		{ name: "Furious Lizard", sales: 152, price: 25.00 },
-		{ name: "Indifferent Monkey", sales: 1, price: 99.95 },
-		{ name: "Brooding Dragon", sales: 0, price: 6350 },
-		{ name: "Ingenious Tadpole", sales: 39450, price: 0.35 },
-		{ name: "Optimistic Snail", sales: 420, price: 1.50 }
+	           		{ name: "Itinerário A", code: 1, description: "Descrição A", action: "Ação A" },
+	        		{ name: "Itinerário B", code: 2, description: "Descrição B", action: "Ação B" },
+	        		{ name: "Itinerário C", code: 3, description: "Descrição C", action: "Ação C" },
+	        		{ name: "Itinerário D", code: 4, description: "Descrição D", action: "Ação D" },
+	        		{ name: "Itinerário E", code: 5, description: "Descrição E", action: "Ação E" },
+	        		{ name: "Itinerário F", code: 6, description: "Descrição F", action: "Ação F" },
+	        		{ name: "Itinerário G", code: 7, description: "Descrição G", action: "Ação G" }
 	];                
     var PagedGridModel = function(items) {
     	this.items = ko.observableArray(items);
 		this.addItem = function() {
-        	this.items.push({ name: "New item", sales: 0, price: 100 });
+        	this.items.push({ name: "Nome Novo", code: 0, description: "Descrição Nova" });
         };
         
         this.sortByName = function() {
@@ -68,9 +68,9 @@ Procurar Itinerário:
         this.gridViewModel = new ko.simpleGrid.viewModel({
         	data: this.items,
             columns: [
-            	{ headerText: "Item Name", rowText: "name" },
-                { headerText: "Sales Count", rowText: "sales" },
-                { headerText: "Price", rowText: function (item) { return "$" + item.price.toFixed(2) } }
+            	{ headerText: "Nome", rowText: "name" },
+                { headerText: "Código", rowText: "code" },
+                { headerText: "Descrição", rowText: "description" }
             ],
             pageSize: 4
         });

@@ -44,18 +44,18 @@ Procurar Local:
 
 <script type="text/javascript">
 	var initialData = [
-		{ name: "Ponto A", address: "Endereço A", latitude: "Latitude A", longitude: "Longitude A", action: "Ação A" },
-		{ name: "Ponto B", address: "Endereço B", latitude: "Latitude B", longitude: "Longitude B", action: "Ação B" },
-		{ name: "Ponto C", address: "Endereço C", latitude: "Latitude C", longitude: "Longitude C", action: "Ação C" },
-		{ name: "Ponto D", address: "Endereço D", latitude: "Latitude D", longitude: "Longitude D", action: "Ação D" },
-		{ name: "Ponto E", address: "Endereço E", latitude: "Latitude E", longitude: "Longitude E", action: "Ação E" },
-		{ name: "Ponto F", address: "Endereço F", latitude: "Latitude F", longitude: "Longitude F", action: "Ação F" },
-		{ name: "Ponto G", address: "Endereço G", latitude: "Latitude G", longitude: "Longitude G", action: "Ação G" }
+		{ name: "Ponto A", address: "Endereço A", lat: "Latitude A", lon: "Longitude A", action: "Ação A" },
+		{ name: "Ponto B", address: "Endereço B", lat: "Latitude B", lon: "Longitude B", action: "Ação B" },
+		{ name: "Ponto C", address: "Endereço C", lat: "Latitude C", lon: "Longitude C", action: "Ação C" },
+		{ name: "Ponto D", address: "Endereço D", lat: "Latitude D", lon: "Longitude D", action: "Ação D" },
+		{ name: "Ponto E", address: "Endereço E", lat: "Latitude E", lon: "Longitude E", action: "Ação E" },
+		{ name: "Ponto F", address: "Endereço F", lat: "Latitude F", lon: "Longitude F", action: "Ação F" },
+		{ name: "Ponto G", address: "Endereço G", lat: "Latitude G", lon: "Longitude G", action: "Ação G" }
 	];                
     var PagedGridModel = function(items) {
     	this.items = ko.observableArray(items);
 		this.addItem = function() {
-        	this.items.push({ name: "Ponto Novo", address: "Endereço Novo", latitude: "Latitude Nova", longitude: "Longitude Nova", action: "Ação Nova" });
+        	this.items.push({ name: "Ponto Novo", address: "Endereço Novo", lat: "Latitude Nova", lon: "Longitude Nova", action: "Ação Nova" });
         };
         
         this.sortByName = function() {

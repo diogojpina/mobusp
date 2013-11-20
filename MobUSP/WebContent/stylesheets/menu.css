@@ -1,0 +1,33 @@
+﻿/* Visit http://www.menucool.com/horizontal/javascript-menu for source code and other menu CSS templates */
+
+#outerDiv
+{
+    background-color: #999;
+    padding:0px;
+    clear:both;
+    text-align:center;/*For IE5 or IE No DOCTYPE*/
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+#innerDiv
+{
+    margin: 0 auto;/*If you don't want the menu center aligned, remove this line and above text-align:center*/	
+	font-size:0;
+	/*background:#fff url(bg.gif) bottom left;*/
+}
+#innerDiv ul, #innerDiv li {
+    display:inline;
+    list-style-type: none;padding:0;margin:0;zoom:1;
+}
+/*#innerDiv li {
+	background: #fff;remove this line if you want to get rid of the 1px gap between each menu item bottom line
+}*/
+#innerDiv a
+{
+    text-align: center;zoom:1;
+    display: inline-block;
+	font: normal 12px Arial;
+	padding:10px 16px;/*This defines the size of each menu item*/
+	text-decoration:none;
+}

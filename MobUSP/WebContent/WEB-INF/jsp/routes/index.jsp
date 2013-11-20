@@ -59,18 +59,18 @@
 
 <script type="text/javascript">
 	var initialData = [
-		{ name: "Itinerário A", code: "Código A", ds: "Descrição A", action: "Ação A" },
-		{ name: "Itinerário B", code: "Código B", ds: "Descrição B", action: "Ação B" },
-		{ name: "Itinerário C", code: "Código C", ds: "Descrição C", action: "Ação C" },
-		{ name: "Itinerário D", code: "Código D", ds: "Descrição D", action: "Ação D" },
-		{ name: "Itinerário E", code: "Código E", ds: "Descrição E", action: "Ação E" },
-		{ name: "Itinerário F", code: "Código F", ds: "Descrição F", action: "Ação F" },
-		{ name: "Itinerário G", code: "Código G", ds: "Descrição G", action: "Ação G" }
+		{ name: "Itinerário A", code: 1, description: "Descrição A", action: "Ação A" },
+		{ name: "Itinerário B", code: 2, description: "Descrição B", action: "Ação B" },
+		{ name: "Itinerário C", code: 3, description: "Descrição C", action: "Ação C" },
+		{ name: "Itinerário D", code: 4, description: "Descrição D", action: "Ação D" },
+		{ name: "Itinerário E", code: 5, description: "Descrição E", action: "Ação E" },
+		{ name: "Itinerário F", code: 6, description: "Descrição F", action: "Ação F" },
+		{ name: "Itinerário G", code: 7, description: "Descrição G", action: "Ação G" }
 	];                
     var PagedGridModel = function(items) {
     	this.items = ko.observableArray(items);
 		this.addItem = function() {
-        	this.items.push({ name: "Itinerário Novo", code: "Código Novo", ds: "Descrição Nova", action: "Ação Nova" });
+        	this.items.push({ name: "Itinerário Novo", code: "Código Novo", description: "Descrição Nova", action: "Ação Nova" });
         };
         
         this.sortByName = function() {
@@ -88,7 +88,7 @@
             columns: [
             	{ headerText: "Nome", rowText: "name" },
                 { headerText: "Código", rowText: "code" },
-                { headerText: "Descrição", rowText: "ds" },
+                { headerText: "Descrição", rowText: "description" },
                 { headerText: "Ações", rowText: "action" } 
                 	//function(item){return"A:" + item.ds.toFixed(2)}}
             ],

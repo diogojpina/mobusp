@@ -42,18 +42,18 @@ Procurar Estações:
 
 <script type="text/javascript">
 	var initialData = [
-		{ name: "Ponto A", address: "Endereço A", ds: "Descrição A", action: "Ação A" },
-		{ name: "Ponto B", address: "Endereço B", ds: "Descrição B", action: "Ação B" },
-		{ name: "Ponto C", address: "Endereço C", ds: "Descrição C", action: "Ação C" },
-		{ name: "Ponto D", address: "Endereço D", ds: "Descrição D", action: "Ação D" },
-		{ name: "Ponto E", address: "Endereço E", ds: "Descrição E", action: "Ação E" },
-		{ name: "Ponto F", address: "Endereço F", ds: "Descrição F", action: "Ação F" },
-		{ name: "Ponto G", address: "Endereço G", ds: "Descrição G", action: "Ação G" }
+		{ name: "Ponto A", address: "Endereço A", description: "Descrição A", action: "Ação A" },
+		{ name: "Ponto B", address: "Endereço B", description: "Descrição B", action: "Ação B" },
+		{ name: "Ponto C", address: "Endereço C", description: "Descrição C", action: "Ação C" },
+		{ name: "Ponto D", address: "Endereço D", description: "Descrição D", action: "Ação D" },
+		{ name: "Ponto E", address: "Endereço E", description: "Descrição E", action: "Ação E" },
+		{ name: "Ponto F", address: "Endereço F", description: "Descrição F", action: "Ação F" },
+		{ name: "Ponto G", address: "Endereço G", description: "Descrição G", action: "Ação G" }
 	];                
     var PagedGridModel = function(items) {
     	this.items = ko.observableArray(items);
 		this.addItem = function() {
-        	this.items.push({ name: "Ponto Novo", address: "Endereço Novo", ds: "Descrição Nova", action: "Ação Nova" });
+        	this.items.push({ name: "Ponto Novo", address: "Endereço Novo", description: "Descrição Nova", action: "Ação Nova" });
         };
         
         this.sortByName = function() {
