@@ -12,7 +12,7 @@ import org.junit.Test;
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.usp.ime.engsoft.dao.PlaceDao;
 
-public class RouteControllerTest {
+public class RoutesControllerTest {
 	
 	private RoutesController routesC;
 	private PlaceDao placeDao;

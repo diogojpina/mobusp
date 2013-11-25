@@ -6,16 +6,16 @@ import java.util.List;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.usp.ime.engsoft.dao.ItinerarioDao;
+import br.usp.ime.engsoft.dao.ItinerarieDao;
 import br.usp.ime.engsoft.entidade.Itinerarie;
 
 @Resource
 public class ItinerariesController {
-	ItinerarioDao dao;
+	ItinerarieDao dao;
 	Result result;
 	
 	
-	public ItinerariesController(ItinerarioDao dao, Result result) {
+	public ItinerariesController(ItinerarieDao dao, Result result) {
 		this.dao = dao;
 		this.result = result;
 	}
@@ -30,8 +30,10 @@ public class ItinerariesController {
 		return itineraries;
 	}
 	
-	public void ver(Long id) {
-		this.result.include("itinerarie", this.dao.carrega(id));
+	public Itinerarie ver(Long id) {
+		Itinerarie iti = this.dao.carrega(id);
+		this.result.include("itinerarie", iti);
+		return iti;
 	}
 	
 	

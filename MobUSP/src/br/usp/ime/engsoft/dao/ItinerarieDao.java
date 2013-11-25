@@ -8,13 +8,12 @@ import org.hibernate.criterion.Restrictions;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.usp.ime.engsoft.entidade.Itinerarie;
-import br.usp.ime.engsoft.entidade.Place;
 
 @Component
-public class ItinerarioDao {
+public class ItinerarieDao {
 	private final Session session;
 	
-	public ItinerarioDao() {
+	public ItinerarieDao() {
 		this.session = CriadorDeSession.getSession();
 	}
 	

@@ -23,8 +23,7 @@ Procurar Local:
         <td>${produto.lat}</td>
         <td>${produto.lon}</td>
         <td>
-        	<a href="produtos/formulario?id=${place.id}">Editar</a>
-        	<a href="produtos/remove?id=${place.id}">Remover</a>        
+        	<a href="places/ver?id=${place.id}">Detalhes</a>     
         </td>
       </tr>      
 </c:forEach>

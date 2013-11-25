@@ -10,7 +10,6 @@ import br.com.caelum.vraptor.Result;
 import br.usp.ime.engsoft.dao.PlaceDao;
 import br.usp.ime.engsoft.entidade.Itinerarie;
 import br.usp.ime.engsoft.entidade.Place;
-import br.usp.ime.engsoft.entidade.Station;
 
 
 @Resource
@@ -25,7 +24,7 @@ public class RoutesController {
 	}
 	
 	@Path("/routes")
-	public void index(Long id1, Long id2) {
+	public List<Itinerarie> index(Long id1, Long id2) {
 		Place place1;
 		Place place2;
 		List<Itinerarie> itis = new ArrayList<Itinerarie>();
@@ -67,10 +66,9 @@ public class RoutesController {
 		}
 		
 		
-		System.out.println(itis.size());
-		this.result.include("itineraries", itis);				
-		 
-
+		this.result.include("itineraries", itis);		
+		
+		return itis;
 	}	
 
 }

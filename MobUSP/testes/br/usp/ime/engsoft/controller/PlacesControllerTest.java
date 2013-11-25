@@ -49,7 +49,7 @@ public class PlacesControllerTest {
 	}
 	
 	@Test 
-		public void buscaVazia() {
+	public void buscaVazia() {
 		List<Place> places = this.placesC.index(null);
 		assertEquals(places.size(), 0);
 	}

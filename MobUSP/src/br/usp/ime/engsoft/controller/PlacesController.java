@@ -32,8 +32,10 @@ public class PlacesController {
 	
 
 	
-	public void ver(Long id) {
-		this.result.include("place", this.dao.carrega(id));
+	public Place ver(Long id) {
+		Place place = this.dao.carrega(id);
+		this.result.include("place", place);
+		return place;
 	}
 	
 	public List<Place> lista() {

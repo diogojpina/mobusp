@@ -10,20 +10,20 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.util.test.MockResult;
-import br.usp.ime.engsoft.dao.ItinerarioDao;
+import br.usp.ime.engsoft.dao.ItinerarieDao;
 import br.usp.ime.engsoft.entidade.Itinerarie;
 
 public class ItinerariesControllerTest {
 
 	private ItinerariesController itiC;
-	private ItinerarioDao itiDao;
+	private ItinerarieDao itiDao;
 	private List<Itinerarie> itis;
 	private MockResult result;	
 	
 	@Before
 	public void SetUp() {  
 		result = spy(new MockResult());
-		itiDao = mock(ItinerarioDao.class);
+		itiDao = mock(ItinerarieDao.class);
 		itiC = new ItinerariesController(itiDao, result);
 		
 		itis = new ArrayList<Itinerarie>();

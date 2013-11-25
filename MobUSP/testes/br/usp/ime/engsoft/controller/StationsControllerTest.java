@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.util.test.MockResult;
-import br.usp.ime.engsoft.dao.ItinerarioDao;
+import br.usp.ime.engsoft.dao.ItinerarieDao;
 import br.usp.ime.engsoft.dao.StationDao;
 import br.usp.ime.engsoft.entidade.Station;
 
