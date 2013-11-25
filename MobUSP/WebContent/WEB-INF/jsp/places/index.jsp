@@ -71,17 +71,13 @@ Procurar Local:
 	$(document).ready(function() {
 		 // Adicionar o link para ver detalhes!
 		 var contador = 0;
-		 //$('#mobUSP tbody tr').each(function() {
-		 $('#mobUSP tbody tr td').each(function() {
-		 //$(this).get(td).each(function() {
-			 contador++;
-			 if (contador == 6) {
+		 $('#mobUSP tbody tr > td').each(function() {
+		 	 contador++;
+			 if (contador % 6 == 0) {
 				 var id = $(this).html()
 				 var elemento = "<a href='places/ver?id="+id+"'>Ver Detalhes</a>";
 				 $(this).replaceWith(elemento);
 			 }
-		 	});
-		 //});
-	     //$("#div"). replaceWith("<h1>JQuery is Great</h1>");
+		 });
 	});
 </script>

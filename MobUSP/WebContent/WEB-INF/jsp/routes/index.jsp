@@ -47,7 +47,7 @@
 </table>
 
 
-	<div data-bind='simpleGrid: gridViewModel'></div>
+	<div data-bind='simpleGrid: gridViewModel' id='mobUSP'></div>
 	<button data-bind='click: addItem'>Add item</button>
 
 	<button data-bind='click: sortByName'>Sort by name</button>
@@ -96,4 +96,17 @@
         });
     };
 	ko.applyBindings(new PagedGridModel(initialData));
+	
+	$(document).ready(function() {
+		 // Adicionar o link para ver detalhes!
+		 var contador = 0;
+		 $('#mobUSP tbody tr > td').each(function() {
+		 	 contador++;
+			 if (contador % 4 == 0) {
+				 var id = $(this).html()
+				 var elemento = "<a href='places/ver?id="+id+"'>Ver Detalhes</a>";
+				 $(this).replaceWith(elemento);
+			 }
+		 });
+	});
 </script>
