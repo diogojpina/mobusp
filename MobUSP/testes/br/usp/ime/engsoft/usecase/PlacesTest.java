@@ -31,7 +31,7 @@ public class PlacesTest {
 		List<Place> places = placesC.index("IME");		
 		assertTrue(places.size() > 0);
 		
-		places = placesC.index("PAULISTA");		
+		places = placesC.index(null);		
 		assertTrue(places.size() == 0);				
 	}
 	

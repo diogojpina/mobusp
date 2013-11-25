@@ -32,7 +32,7 @@ public class ItinerariesTest {
 		List<Itinerarie> itis = itiC.index("USP");
 		assertTrue(itis.size() > 0);
 		
-		itis = itiC.index("QUALQUER COISA");
+		itis = itiC.index(null);
 		assertTrue(itis.size() == 0);
 	}
 	

@@ -32,7 +32,7 @@ public class StationsTest {
 		List<Station> stations = stationsC.index("IME");
 		assertTrue(stations.size() > 0);
 		
-		stations = stationsC.index("PAULISTA");
+		stations = stationsC.index(null);
 		assertTrue(stations.size() == 0);
 	}
 	

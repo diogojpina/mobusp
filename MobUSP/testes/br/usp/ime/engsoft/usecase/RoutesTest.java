@@ -30,9 +30,11 @@ public class RoutesTest {
 	
 	@Test
 	public void search() {
-		List<Itinerarie> itis = routesC.index((long) 1, (long) 2);
-		
+		List<Itinerarie> itis = routesC.index((long) 1, (long) 2);		
 		assertTrue(itis.size() > 0);
+		
+		itis = routesC.index(null, null);		
+		assertTrue(itis.size() == 0);
 	}
 
 }

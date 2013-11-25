@@ -29,24 +29,19 @@ public class PlacesController {
 			places = this.dao.buscaPlace(busca);
 		return places;
 	}
-	
-
-	
+		
 	public Place ver(Long id) {
 		Place place = this.dao.carrega(id);
 		this.result.include("place", place);
 		return place;
 	}
+	/*
 	
 	public List<Place> lista() {
 		return dao.listaTudo();		
 	}
 	
-	public void listaJson() {
-		List<Place> places = dao.listaTudo();	
-		this.result.use(Results.json()).from(places).serialize();		
-	}
-	
+
 	public Place formulario(Long id) {
 		Place place;
 		if (id == 0)
@@ -56,4 +51,5 @@ public class PlacesController {
 			
 		return place;
 	}
+	*/
 }
